@@ -4,6 +4,8 @@ from django.contrib.auth.models import auth    # logout
 from django.contrib.auth import authenticate # login
 from django.contrib.auth.decorators import login_required
 
+from .models import Record 
+
 # Homepage
 
 def home(request):
@@ -46,6 +48,9 @@ def my_login(request):
 
 @login_required(login_url='my-login')  # Ensure user is logged in to access the dashboard
 def dashboard(request):
+
+    my_records = Record.objects.all()
+    context = {'records': my_records}
     return render(request, 'crudapp/dashboard.html')
 
 # log out a user
