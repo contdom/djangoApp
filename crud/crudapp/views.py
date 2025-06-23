@@ -42,7 +42,6 @@ def my_login(request):
     context = {'form': form}
     return render(request, 'crudapp/my-login.html', context=context)
 
-
 # dashboard
 
 @login_required(login_url='my-login')  # Ensure user is logged in to access the dashboard
