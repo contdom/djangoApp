@@ -51,7 +51,7 @@ def dashboard(request):
 
     my_records = Record.objects.all()
     context = {'records': my_records}
-    return render(request, 'crudapp/dashboard.html')
+    return render(request, 'crudapp/dashboard.html', context=context)
 
 # log out a user
 
